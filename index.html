@@ -323,16 +323,18 @@
             </p>
 
             <ul>
-              <li><strong>1. Imperfect Segmentation from SAM2:</strong> In most cases, we found SAM2 can segment the
-                human hand
-                and
-                exoskeleton pretty well. However, we notice, SAM2 sometimes misses some small areas on the exoskeleton.
-              </li>
+              <li><strong>1. Imperfect Segmentation from SAM2:</strong> In most cases, we found SAM2 (<a
+                  href="#ref-ravi2024">Ravi et
+                  al., 2024</a>) can segment the human hand and exoskeleton pretty well. However, we notice, SAM2
+                sometimes misses
+                some small areas on the exoskeleton. </li>
 
-              <li><strong>2. Quality of inpainting method:</strong> We use flow-based inpainting to replace the human
-                and
-                exoskeleton pixels with background
-                pixels. Though the overall quality is high, there are some areas still blurry.</li>
+              <li><strong>2. Quality of inpainting method:</strong> We use flow-based inpainting ProPainter (<a
+                  href="#ref-zhou2023">Zhou et al.,
+                  2023</a>) to replace the human
+                and exoskeleton
+                pixels with background pixels. Though
+                the overall quality is high, there are some areas still blurry.</li>
 
               <li><strong>3. Robot hand hardware:</strong> Throughout our experiments, we found that both the Inspire
                 Hand and
@@ -344,18 +346,21 @@
                 closing the
                 hand or opening it. This inevitably causes minor discrepancies in the
                 inpainting and action mapping processes.</li>
-              <li><strong>4. Inconsistent illumination:</strong> We found that illumination on the robot hand might be
-                inconsistent with what the robot experiences during deployment.
-                Therefore, we add image augmentation including color jitter and random grayscale during policy
-                training to make the
-                learned policy less sensitive to lighting conditions.
+              <li><strong>4. Inconsistent illumination:</strong> Similar to prior work (<a href="#ref-chen2024">Chen et
+                  al.,
+                  2024</a>), we found that illumination on the robot hand might be inconsistent with what the robot
+                experiences during
+                deployment. Therefore, we add image augmentation including color jitter and random grayscale during
+                policy training to
+                make the learned policy less sensitive to lightingconditions.</li>
               <li><strong>5. 3D-printed exoskeleton deformation:</strong> The human hand is powerful and can sometimes
                 cause the 3D-printed exoskeleton to deform during operation. In such cases,
                 the encoder value fails to reflect this deformation. Consequently, the robot finger location might not
                 align with the
-                exoskeleton's actual finger position.
+                exoskeleton's actual finger position.</li>
             </ul>
           </body>
+
           Nevertheless, the processed visual observation is passed to the manipulation policy as input. The learned
           policy
           achieves an average task success rate of 86% on two different robot hardware platforms. This suggests our
@@ -434,7 +439,24 @@
             </div>
           </div>
       </section>
-
+      <h3><strong>References</strong></h3>
+      <ul class="references">
+        <li id="ref-ravi2024">Ravi, N., Gabeur, V., Hu, Y. T., Hu, R., Ryali, C., Ma, T., Khedr, H., Rädle, R., Rolland,
+          C.,
+          Gustafson, L., Mintun, E., Pan, J., Alwala, K. V., Carion, N., Wu, C. Y., Girshick, R., Dollár, P., &
+          Feichtenhofer,
+          C. (2024). SAM 2: Segment Anything in Images and Videos. <em>arXiv preprint arXiv:2408.00714</em>. </li>
+        <li id="ref-zhou2023">Zhou, S., Li, C., Chan, K. C. K., & Loy, C. C. (2023). ProPainter: Improving propagation
+          and
+          transformer for video inpainting. In <em>Proceedings of the IEEE/CVF International Conference on Computer
+            Vision</em>
+          (pp. 10477-10486). </li>
+        <li id="ref-chen2024">Chen, L. Y., Xu, C., Dharmarajan, K., Cheng, R., Keutzer, K., Tomizuka, M., Vuong, Q., &
+          Goldberg,
+          K. (2024). RoVi-Aug: Robot and Viewpoint Augmentation for Cross-Embodiment Robot Learning. In <em>8th Annual
+            Conference on Robot Learning</em>. </li>
+        <!-- Add more references as needed -->
+      </ul>
       <footer class="footer">
         <div class="container">
           <div class="columns is-centered">
